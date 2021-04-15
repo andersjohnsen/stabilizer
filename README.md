@@ -10,7 +10,7 @@ Check out [toit.io](https://toit.io/) for more information about Toit.
 
 You can see the code running on an ESP32 here:
 
-[![Demo](https://img.youtube.com/vi/maIeQiaM7ds/0.jpg)](https://youtu.be/maIeQiaM7ds)
+[![Demo](https://img.youtube.com/vi/oxo_jHYxOrQ/0.jpg)](https://youtu.be/oxo_jHYxOrQ)
 
 The IMU used is ICM-20948, together with two basic servo motors:
 
