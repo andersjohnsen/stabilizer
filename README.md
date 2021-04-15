@@ -1,6 +1,10 @@
-# stabilizer
+# Gimbal Stabilizer written in Toit
 
-Gimbal stabilizer using IMU, servo motors and a PID controller
+Gimbal stabilizer using IMU, servo motors and a PID controller.
+
+It's written in Toit and can run on any ESP32.
+
+Check out [toit.io](https://toit.io/) for more information about Toit.
 
 ## Demo
 
