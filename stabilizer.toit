@@ -5,10 +5,10 @@ import pid
 import ahrs.madgwick
 
 /**
-Gimbal stabilizer at over two angles of freedom, controlled as two servo motors.
+Gimbal stabilizer over two angles of freedom, controlled as two servo motors.
 
-The stabilizer uses the Madgwick IMU algorithm to compute the absolute orientation,
-  which in term is feeded to a PID Controller, tuned to rapid feedback to
+The stabilizer uses the Madgwick AHRS algorithm to compute the absolute orientation,
+  which in term is feeded to a PID Controller, tuned to rapid feedback with
   no overshoot.
 */
 class Stabilizer:
@@ -55,16 +55,18 @@ class Stabilizer:
       elapsed
 
     if start >= next_apply_:
-      r := madgwick_.rotation
-      euler_angles := r.euler_angles
+      euler_angles := madgwick_.rotation.euler_angles
 
+      // Compute new pitch and roll angles for the servo motors.
       pitch := euler_angles.y
-      pitch_angle := pitch_pid_.update -pitch APPLY_RATE
-      pitch_.degrees = pitch_angle
+      pitch_degrees := pitch_pid_.update -pitch APPLY_RATE
 
       roll := euler_angles.x
-      roll_angle := roll_pid_.update roll APPLY_RATE
-      roll_.degrees = roll_angle
+      roll_degrees := roll_pid_.update roll APPLY_RATE
+
+      // Update the servo motors with the new angles.
+      pitch_.degrees = pitch_degrees
+      roll_.degrees = roll_degrees
 
       next_apply_ += APPLY_RATE.in_us
 

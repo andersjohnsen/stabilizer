@@ -6,7 +6,8 @@ prefixes:
   servo: servo
 packages:
   ahrs:
-    path: ../ahrs
+    url: github.com/andersjohnsen/ahrs
+    version: 1.0.0
     prefixes:
       math3d: math3d
   icm20948-driver:

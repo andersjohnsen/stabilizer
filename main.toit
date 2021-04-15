@@ -8,7 +8,7 @@ import icm20948
 
 import .stabilizer
 
-MEASURE_RATE ::= Duration --ms=5  // 200hz.
+MEASURE_RATE ::= Duration --ms=4  // 250hz.
 
 SDA ::= gpio.Pin 21
 SCL ::= gpio.Pin 22
@@ -25,6 +25,8 @@ main:
   // Reset the servos to center position.
   pitch.degrees = 0
   roll.degrees = 0
+
+  // Let the servo motors settle.
   sleep --ms=1000
 
   // Setup the ICM20948 IMU driver.
